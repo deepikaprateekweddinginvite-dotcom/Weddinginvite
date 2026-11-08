@@ -231,7 +231,7 @@ footer p{margin-top:15px;font-size:12px;letter-spacing:2px}
   <div class="faq">
     <details open><summary>How do I get there?</summary><p>The venue is in Haldighati, about an hour's drive from Udaipur city. Approximate road distances:</p><ul><li><strong>Udaipur Airport</strong> (Maharana Pratap, UDR): about 55–58 km, 1 to 1.5 hours</li><li><strong>Udaipur City Railway Station:</strong> about 38–45 km, around 1 hour</li><li><strong>Udaipur city bus stand:</strong> about 40–45 km, around 1 hour</li></ul><p>Times vary with traffic. Please share your arrival details in the RSVP form.</p></details>
     <details><summary>What will the weather be like?</summary><p>February in Udaipur has pleasant days and cool evenings. Carry a light jacket or shawl for the night functions.</p></details>
-    <details><summary>What should I know about the ceremony?</summary><p>The Anand Karaj takes place at the venue in the presence of Guru Granth Sahib Ji. Everyone covers their head and wears traditional attire. Please do not wear red to the ceremony. Please keep alcohol and tobacco away from the ceremony space.</p></details>
+    <details><summary>What should I know about the ceremony?</summary><p>The Anand Karaj takes place at the venue in the presence of Sri Guru Granth Sahib Ji. Everyone covers their head and wears traditional attire. Please do not wear red to the ceremony. Please keep alcohol and tobacco away from the ceremony space.</p></details>
     <details><summary>Can I bring family or a guest?</summary><p>List everyone who is attending in the RSVP form, so we can plan seats and rooms for each person.</p></details>
   </div>
   <p class="contact" id="contact"></p>
@@ -273,7 +273,7 @@ const EVENTS = [
   {day:"Saturday, 13 February",t:"rango",icon:"🎨",deco:"🎡",name:"Rango ka Mela",tag:"Mehndi, Haldi and a carnival of colours",time:"12:00 PM",start:"2027-02-13T12:00:00+05:30",h:4,dress:"Bright, poppy carnival colours"},
   {t:"sangeet",icon:"✨",deco:"✨",name:"Rasam-e-Sagai aur Sangeet",tag:"Bling, Beats & Blessings",time:"7:00 PM",start:"2027-02-13T19:00:00+05:30",h:4,dress:"Jewel tones, glam & sparkle"},
   {day:"Sunday, 14 February",t:"baarat",icon:"🐎",deco:"🐎",name:"The Baarat",tag:"Dhol, dance and the groom's grand arrival",time:"10:30 AM",start:"2027-02-14T10:30:00+05:30",h:1.5,extra:"Saffas (turbans) and head scarves are on us for all the men. Come and join the procession in style!"},
-  {t:"wedding",icon:"🙏",deco:"🙏",name:"The Wedding Ceremony",tag:"Anand Karaj",time:"12:00 Noon",start:"2027-02-14T12:00:00+05:30",h:2,extra:"Laava in the presence of Guru Granth Sahib Ji",dress:"Traditional attire, head covered. Please do not wear red"},
+  {t:"wedding",icon:"🙏",deco:"🙏",name:"The Wedding Ceremony",tag:"Anand Karaj",time:"12:00 Noon",start:"2027-02-14T12:00:00+05:30",h:2,extra:"Laava in the presence of Sri Guru Granth Sahib Ji",dress:"Traditional attire, head covered. Please do not wear red"},
   {t:"finale",icon:"🥂",deco:"🥂",name:"The Grand Finale",tag:"The Newlywed Ball",time:"7:00 PM",start:"2027-02-14T19:00:00+05:30",h:4,dress:"Black tie for the gentlemen. Ladies, wear whatever makes you feel your most glamorous"}
 ];
 
@@ -287,15 +287,11 @@ const FAMILY_CONTACTS = {
     {name:'Satish Kharbanda', wa:'918860032125', tel:'918860032125'},
     {name:'Meenu Kharbanda', wa:'919711253026', tel:'919711253026'},
     {name:'Prateek Kharbanda', wa:'971526112672', tel:'919711510187'}
-  ],
-  'c-bride': [
-    {name:'Raju Paraswani', wa:'971585835560', tel:'917600641062'},
-    {name:'Kiran Paraswani', wa:'971509173050', tel:'918155908900'},
-    {name:'Deepika Paraswani', wa:'971585367553', tel:'918200314320'}
   ]
 };
 Object.keys(FAMILY_CONTACTS).forEach(id => {
-  document.getElementById(id).innerHTML = FAMILY_CONTACTS[id].map(p =>
+  const el = document.getElementById(id); if (!el) return;
+  el.innerHTML = FAMILY_CONTACTS[id].map(p =>
     '<div class="fc-row"><div class="fc-name">' + p.name + '</div><div class="fc-btns">' +
     (p.wa ? '<a class="wa" href="https://wa.me/' + p.wa + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>' : '') +
     (p.tel ? '<a href="tel:+' + p.tel + '">Call +' + p.tel.replace(/^(\d{2})(\d{5})(\d{5})$/, '$1 $2 $3').replace(/^(971)(\d{2})(\d{3})(\d{4})$/, '$1 $2 $3 $4') + '</a>' : '') +
